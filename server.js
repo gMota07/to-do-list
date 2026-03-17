@@ -1,12 +1,13 @@
+import 'dotenv/config'
 import express from "express"
+import tasksRoutes from "./src/routes/taskRoutes.js"
 
 const app = express()
-const port = 3333
 
-app.get('/', (req,res) => {
-    res.send('Hello World')
-})
+app.use(express.json())
 
-app.listen(port, () =>{
-    console.log(`Ligada na porta ${port}`)
+app.use('/tasks', tasksRoutes)
+
+app.listen(process.env.PORT, () =>{
+    console.log(`Ligada na porta ${process.env.PORT}`)
 })

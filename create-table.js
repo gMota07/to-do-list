@@ -1,4 +1,4 @@
-import sql from './db.js'
+import sql from './src/database/db.js'
 
 sql `
     CREATE TABLE TAREFA(
