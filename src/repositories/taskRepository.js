@@ -44,7 +44,7 @@ class TaskRepository {
             update tarefa
                 set concluida = ${concluida}
             where id = ${id}
-            returning id
+            returning tarefa
         `
         return task
     }

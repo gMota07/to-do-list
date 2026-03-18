@@ -17,7 +17,7 @@ class TaskController{
     }
 
     create = async(req,res) => {
-        console.log(req.titulo)
+        console.log(req.body)
         try{
             const {descricao, titulo} = req.body;
             const task = await this.service.create(descricao, titulo)
