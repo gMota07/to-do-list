@@ -7,8 +7,11 @@ class TaskService{
         return await this.repository.findAll()
     }
 
-    async create(descricao, titulo, concluida){
-        return await this.repository.create(descricao, titulo, concluida)
+    async create(descricao, titulo){
+        if(!descricao){
+            descricao = ""
+        }
+        return await this.repository.create(descricao, titulo)
     }
 
     async update(id, descricao, titulo, concluida){

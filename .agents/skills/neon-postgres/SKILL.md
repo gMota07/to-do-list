@@ -1,6 +1,6 @@
 ---
 name: neon-postgres
-description: Guides and best practices for working with Neon Serverless Postgres. Covers getting started, local development with Neon, choosing a connection method, Neon features, authentication (@neondatabase/auth), PostgREST-style data API (@neondatabase/neon-js), Neon CLI, and Neon's Platform API/SDKs. Use for any Neon-related questions.
+descricao: Guides and best practices for working with Neon Serverless Postgres. Covers getting started, local development with Neon, choosing a connection method, Neon features, authentication (@neondatabase/auth), PostgREST-style data API (@neondatabase/neon-js), Neon CLI, and Neon's Platform API/SDKs. Use for any Neon-related questions.
 ---
 
 # Neon Serverless Postgres
@@ -22,7 +22,7 @@ Both return the same markdown content. Use whichever method your tools support.
 
 ### Finding the Right Page
 
-The docs index lists every available page with its URL and a short description:
+The docs index lists every available page with its URL and a short descricao:
 
 ```
 https://neon.com/docs/llms.txt
