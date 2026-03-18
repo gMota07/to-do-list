@@ -6,9 +6,44 @@ class TaskRepository {
         return tasks
     }
 
-    async create(descricao, titulo, concluida){
-        const tasks = await sql `INSERT INTO TAREFA(${descricao}, ${titulo} , ${concluida})`
+    async findById(id){
+        const tasks = await sql`SELECT * FROM TAREFA WHERE ID=${id}`
+        return tasks[0] || null
+    }
+
+    async create(descricao, titulo, concluida) {
+        const tasks = await sql`
+            INSERT INTO tarefa (descricao, titulo, concluida)
+            VALUES (${descricao}, ${titulo}, ${concluida})
+        `
         return tasks
+    }
+
+    async update(id, descricao, titulo, concluida) {
+        const tasks = await sql`
+            update tarefa
+                set titulo = ${titulo},
+                descricao = ${descricao},
+                concluida = ${concluida}
+            where id = ${id}
+        `
+        return tasks
+    }
+
+    async delete(id){
+        const task = await sql`
+            delete from tarefa where id = ${id}
+        `
+        return task
+    }
+
+    async marcar(id, concluida){
+        const task = await sql`
+            update tarefa
+                set concluida = ${concluida}
+            where id = ${id}
+        `
+        return task
     }
 }
 

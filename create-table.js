@@ -1,12 +1,15 @@
 import sql from './src/database/db.js'
 
+
+
+
 sql `
-    CREATE TABLE TAREFA(
-        ID INT PRIMARY KEY,
-        CONCLUIDA BOOL,
-        DESCRICAO TEXT,
-        TITULO TEXT
-    )
+    CREATE TABLE if not exists tarefa (
+        id serial PRIMARY KEY,
+        titulo TEXT,
+        descricao TEXT,
+        concluida BOOLEAN
+    );
 `.then(() => {
     console.log("Tabela Criada!")
 }).catch((err)=>{
