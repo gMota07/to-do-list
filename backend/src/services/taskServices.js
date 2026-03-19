@@ -26,13 +26,17 @@ class TaskService{
     }
 
     async marcar(id){
-        const tarefa = await this.repository.findById(id)
-        if(!tarefa){
+        const task = await this.repository.findById(id)
+        if(!task){
             throw new Error("Tarefa não encontrada.")
         }
 
-        const novoStatus = !tarefa.concluida
+        const novoStatus = !task.concluida
         return await this.repository.marcar(id, novoStatus)
+    }
+
+    async search(vrpesq){
+        return await this.repository.search(vrpesq)
     }
 }
 

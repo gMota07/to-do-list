@@ -3,7 +3,12 @@
 API RESTful desenvolvida com Express para gerenciamento de tarefas,
 seguindo boas práticas de arquitetura em camadas.
 
-!["Tarefa Tela"](/img/TelaPrincipal.jpg)
+## Tela Inicial
+!["Tela de Tarefas"](/img/Tela.jpg)
+## Pesquisa por ID
+!["Tela de Pesquisa"](/img/TelaPesquisa.jpg)
+## Pesquisa por Titulo
+!["Tela de Pesquisa"](/img/TelaPesqNome.jpg)
 ------------------------------------------------------------------------
 
 ## 🚀 Funcionalidades

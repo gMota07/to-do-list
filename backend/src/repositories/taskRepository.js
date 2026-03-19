@@ -50,6 +50,39 @@ class TaskRepository {
         `
         return task
     }
+
+    async search(vrpesq){
+        let task;
+
+        // força string pra evitar erro de length
+        const valor = String(vrpesq).trim();
+        console.log(valor)
+        if (valor === "ALL") {
+            task = await sql`
+                SELECT * FROM tarefa
+            `;
+        } 
+        else if (isNaN(valor) && valor.length > 2) {
+            // texto -> busca por título
+            task = await sql`
+                SELECT * FROM tarefa 
+                WHERE titulo ILIKE ${'%' + valor + '%'}
+            `;
+        } 
+        else if (!isNaN(valor)) {
+            // número -> busca por id
+            task = await sql`
+                SELECT * FROM tarefa 
+                WHERE id = ${Number(valor)}
+            `;
+        } 
+        else {
+            // fallback (ex: texto curto tipo "a")
+            return [];
+        }
+
+        return task;
+    }
 }
 
 export default TaskRepository

@@ -10,6 +10,6 @@ taskRoutes.post('/task', taskController.create)
 taskRoutes.put('/task/:id', taskController.update)
 taskRoutes.delete('/task/:id', taskController.delete)
 taskRoutes.put('/task/marcar/:id', taskController.marcar)
-
+taskRoutes.get('/task/filtrar/:vrpesq', taskController.search)
 
 export default taskRoutes

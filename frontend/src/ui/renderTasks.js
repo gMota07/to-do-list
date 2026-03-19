@@ -1,6 +1,8 @@
 import { esc } from '../utils/esc.js';
 
 export function renderTasks(tasks) {
+    
+
     return tasks.map(task => `
     <div class="task-item ${task.concluida ? 'done' : ''}" id="task-${task.id}">
       

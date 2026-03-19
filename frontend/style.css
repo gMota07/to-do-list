@@ -47,7 +47,7 @@ h1 {
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 28px;
+    margin-bottom: 15px;
 }
 
 .form-box input,
@@ -91,6 +91,7 @@ h1 {
 
 .btn:hover {
     opacity: 0.85;
+    background-color: var(--border);
 }
 
 .btn:active {
@@ -117,6 +118,52 @@ h1 {
     background: transparent;
     border: 1px solid #e0c8c5;
     color: var(--danger);
+}
+
+/* SearchBar */
+.search-bar-container{
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+
+.search-bar{
+    width: 100%;
+}
+
+.search-bar input{
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+    resize: none;
+}
+
+.search-icon-container{
+    display: flex;
+    background-color: rebeccapurple;
+    
+}
+
+.search-icon{
+    background: none;
+    background-color:#00e959;
+    border: none;
+}
+
+.search-icon svg{
+    height: 25px;
 }
 
 /* Task list */

@@ -80,6 +80,18 @@ class TaskController{
             res.status(500).json({error: err.message})
         }
     }
+
+    search = async(req,res) => {
+        try{
+            const { vrpesq } = req.params
+            const task = await  this.service.search(vrpesq)
+            res.status(200).json(task)
+        }catch (err) {
+            console.error("Erro completo:", err);
+            res.status(500).json({ error: "Erro ao buscar tarefa" });
+        }
+    }
+
 }
 
 export default TaskController

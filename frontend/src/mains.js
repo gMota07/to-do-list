@@ -15,6 +15,7 @@ window.deleteTask = deleteTask;
 window.openEdit = openEdit;
 window.closeEdit = closeEdit;
 window.saveEdit = saveEdit;
+window.loadTasks = loadTasks;
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('new-titulo')

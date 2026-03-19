@@ -47,4 +47,12 @@ export const taskService = {
     if (!res.ok) throw new Error('Erro ao marcar tarefa');
     return res.json();
   },
+
+  async search(vrpesq){
+    const res = await fetch(`${BASE_URL}/task/filtrar/${vrpesq}`,{
+      method: 'GET'
+    })
+    if (!res.ok) throw new Error("Erro ao buscar tarefa")
+    return res.json()
+  }
 };

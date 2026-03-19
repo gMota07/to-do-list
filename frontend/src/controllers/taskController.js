@@ -3,16 +3,28 @@ import { renderTasks } from '../ui/renderTasks.js';
 import { showToast } from '../ui/toast.js';
 
 export async function loadTasks() {
+    
     const list = document.getElementById('task-list');
-
+    const input = document.getElementById('searchTask')
+    
+    const valor = String(input.value).trim() || "ALL";
+    //console.log(valor)
     try {
-        const tasks = await taskService.findAll();
-
-        if (!tasks.length) {
-            list.innerHTML = '<p>Nenhuma tarefa ainda.</p>';
-            return;
+        //console.log("Carregando tarefas..")
+        let tasks;
+        if(valor == "ALL"){
+            tasks = await taskService.findAll(); // array com todas as tarefas
+            if (!tasks.length) {
+                list.innerHTML = '<p>Nenhuma tarefa ainda.</p>';
+                return;
+            }
+        }else{
+            tasks =  await taskService.search(valor) //array com objeto q contem todos os atributos da tarefa
+            if(!tasks.length){
+                list.innerHTML = '<p>Nenhuma tarefa referente a essa pesquisa.</p>'
+            }
         }
-
+        //console.log(`tarefas: ${JSON.stringify(tasks)}`)
         list.innerHTML = renderTasks(tasks);
 
     } catch (e) {
@@ -102,3 +114,4 @@ export async function saveEdit(id) {
         showToast('❌ ' + e.message);
     }
 }
+
