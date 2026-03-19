@@ -5,9 +5,11 @@ const taskRoutes = Router()
 const taskController = new TaskController()
 
 taskRoutes.get('/task', taskController.findAll)
+taskRoutes.get('/task/:id', taskController.findById)
 taskRoutes.post('/task', taskController.create)
 taskRoutes.put('/task/:id', taskController.update)
 taskRoutes.delete('/task/:id', taskController.delete)
 taskRoutes.put('/task/marcar/:id', taskController.marcar)
+
 
 export default taskRoutes

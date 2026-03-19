@@ -6,6 +6,9 @@ class TaskService{
     async findAll(){
         return await this.repository.findAll()
     }
+    async findById(id){
+        return await this.repository.findById(id)
+    }
 
     async create(descricao, titulo){
         if(!descricao){
@@ -14,8 +17,8 @@ class TaskService{
         return await this.repository.create(descricao, titulo)
     }
 
-    async update(id, descricao, titulo, concluida){
-        return await this.repository.update(id, descricao, titulo, concluida)
+    async update(id, descricao, titulo){
+        return await this.repository.update(id, descricao, titulo)
     }
 
     async delete(id){

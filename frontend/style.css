@@ -100,20 +100,37 @@ h1 {
     transition: opacity 0.2s;
 }
 
-.task-item.done { opacity: 0.55; }
+.task-item .done { opacity: 0.55; }
 
 .check-btn {
-    flex-shrink: 0;
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--border);
-    background: transparent;
-    cursor: pointer;
-    margin-top: 2px;
-    display: flex; align-items: center; justify-content: center;
-    transition: border-color 0.15s, background 0.15s;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%; /* 🔥 deixa redondo */
+  border: 2px solid #00e959;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-.check-btn:hover { border-color: var(--accent); }
+.check-btn:hover {
+  background-color: #00e959;
+}
+
+.check-btn:hover svg path {
+  stroke: #fff;
+}
+
+.check-btn.done {
+  background-color: #00e959;
+  border-color: #00e959;
+}
+
+.check-btn.done svg path {
+  stroke: #fff;
+}
+
 .task-item.done .check-btn { background: var(--accent); border-color: var(--accent); }
 .check-btn svg { display: none; }
 .task-item.done .check-btn svg { display: block; }
@@ -177,3 +194,7 @@ h1 {
     z-index: 100;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.id-task-span {
+    color:#aaa
+}

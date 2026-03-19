@@ -15,6 +15,17 @@ class TaskController{
             res.status(500).json({error: err.message})
         }
     }
+    findById = async (req, res) => {
+        try{
+            const id = req.params.id
+            
+            const task = await this.service.findById(id)
+            console.log(task)
+            res.status(200).json(task)
+        }catch(err){
+            res.status(500).json({error: err.message})
+        }
+    }
 
     create = async(req,res) => {
         console.log(req.body)
@@ -31,10 +42,12 @@ class TaskController{
     update = async(req,res) => {
         try{
             const id = req.params.id
-            const { descricao, titulo, concluida } = req.body
-            const task = await this.service.update(id, descricao, titulo, concluida)
+            const { descricao, titulo } = req.body
+            
+            console.log("Controller : ",id, descricao, titulo)
+            const task = await this.service.update(id, descricao, titulo)
             //console.log()
-            res.status(200).json(task[0])
+            res.status(200).json(task)
         }catch(err){
             res.status(500).json({error: err.message})
         }
@@ -58,7 +71,7 @@ class TaskController{
         try{
             const id = req.params.id
             const task = await this.service.marcar(id)
-
+            //console.log(task[0].tarefa)
             res.status(200).json(task[0])
         }catch(err){
             if(isNaN(req.params.id)){

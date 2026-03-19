@@ -7,6 +7,7 @@ class TaskRepository {
     }
 
     async findById(id){
+
         const tasks = await sql`SELECT * FROM TAREFA WHERE ID=${id}`
         return tasks[0] || null
     }
@@ -20,15 +21,16 @@ class TaskRepository {
         return tasks
     }
 
-    async update(id, descricao, titulo, concluida) {
-        const tasks = await sql`
+    async update(id, descricao, titulo) {
+        //console.log(id, descricao, titulo)
+        const task = await sql`
             update tarefa
-                set titulo = ${titulo},
-                descricao = ${descricao},
-                concluida = ${concluida}
+                set descricao = ${descricao},
+                titulo = ${titulo}
             where id = ${id}
+            returning *
         `
-        return tasks
+        return task[0]
     }
 
     async delete(id){
