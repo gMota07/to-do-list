@@ -5,11 +5,10 @@ import path from 'path'
 import tasksRoutes from "./src/routes/taskRoutes.js"
 
 const app = express()
+
 app.use(cors())
 app.use(express.json())
-app.get('/', (req, res) => {
-  res.send('API rodando 🚀')
-})
+
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
@@ -17,6 +16,7 @@ app.get('/', (req, res) => {
 })
 app.use(tasksRoutes)
 
-app.listen(process.env.PORT, () =>{
-    console.log(`Ligada na porta ${process.env.PORT}`)
+const PORT = process.env.PORT || 3333
+app.listen(PORT, () => {
+  console.log(`Ligada na porta ${PORT}`)
 })
