@@ -67,6 +67,7 @@ Servidor: http://localhost:3333
 
 GET /task\
 GET /task/:id\
+GET /task/filtrar/:vrpesq\
 POST /task\
 PUT /task/:id\
 PUT /task/marcar/:id\
